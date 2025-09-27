@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+body {
+  color: #052163;
+}
+
+.imgSection {
+  background-image: url('../images/hero.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+/* Hide counter in number input */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* Hide scroll bar */
+::-webkit-scrollbar {
+  display: none;
+}
