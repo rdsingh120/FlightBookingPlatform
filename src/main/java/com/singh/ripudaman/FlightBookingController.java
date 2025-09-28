@@ -13,7 +13,7 @@ public class FlightBookingController {
 		
 		String fullName = booking.getFullName();
 		String fullAddress = booking.getFullAddress();
-		String price = "$" + booking.calculatePrice();
+		String price = "$" + String.format("%.2f", booking.calculatePrice());
 		
 		model.addAttribute("booking", booking);
 		

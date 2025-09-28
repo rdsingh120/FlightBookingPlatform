@@ -203,10 +203,16 @@ public class Booking {
 		return getStreetAddress() + " " + streetAddressLine2Str + " " + getCity() + " " + getProvince() + " " + getPostalCode() + " " + getCountry();
 	}
 	
-	public int calculatePrice() {
+	public double calculatePrice() {
+		int basePrice = 500;
+		int passengerCount = getAdultsCount();
 		boolean isRoundTrip = getTripType().equals("Round Trip") ? true : false;
-		int price = isRoundTrip ? 2000 : 1000;
-		return price;
+		int roundTripCharge = isRoundTrip ? 400 : 0;
+		int distance = 280;
+		
+		int price = (basePrice + roundTripCharge + distance) * passengerCount;
+		
+		return price * 1.13; // price + taxes
 	}
 	
 
