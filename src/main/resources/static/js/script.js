@@ -284,69 +284,81 @@ const submitBtn = document.getElementById('submitBtn')
 submitBtn.addEventListener('click', (event) => {
   event.preventDefault()
 
-  validateTripType()
+  let isValid = true
+
+  if (!validateTripType()) isValid = false
 
   //validates that the departure city is selected
-  validate(departureCity, departureCityError, 'Departure city')
+  if (!validate(departureCity, departureCityError, 'Departure city'))
+    isValid = false
 
   //validates that the arrival city is selected
-  validate(arrivalCity, arrivalCityError, 'Arrival city')
+  if (!validate(arrivalCity, arrivalCityError, 'Arrival city')) isValid = false
 
-  validateArrivalDepartureCityDistinct()
+  if (!validateArrivalDepartureCityDistinct()) isValid = false
 
   //validates that the airline is selected
-  validate(airline, airlineError, 'Airline')
+  if (!validate(airline, airlineError, 'Airline')) isValid = false
 
   //validates that the departure date is entered
-  validate(departureDate, departureDateError, 'Departure date')
+  if (!validate(departureDate, departureDateError, 'Departure date'))
+    isValid = false
 
-  validateReturnDate()
+  if (!validateReturnDate()) isValid = false
 
   //validates that the adult count is entered
-  validate(adultsCount, adultsCountError)
+  if (!validate(adultsCount, adultsCountError)) isValid = false
 
   //validates that the first name is entered
-  validate(firstName, firstNameError, 'First name')
+  if (!validate(firstName, firstNameError, 'First name')) isValid = false
 
   //validates that the last name is entered
-  validate(lastName, lastNameError, 'Last name')
+  if (!validate(lastName, lastNameError, 'Last name')) isValid = false
 
   //validates that the passport number is entered
-  validate(passportNumber, passportNumberError, 'Passport number')
+  if (!validate(passportNumber, passportNumberError, 'Passport number'))
+    isValid = false
 
   //validates that the nationality is entered
-  validate(nationality, nationalityError, 'Nationality')
+  if (!validate(nationality, nationalityError, 'Nationality')) isValid = false
 
   //validates that the passport expiry date is entered
-  validate(expiryDate, expiryDateError, "Passport's expiry date")
+  if (!validate(expiryDate, expiryDateError, "Passport's expiry date"))
+    isValid = false
 
   //validates that the passport issue date is entered
-  validate(issueDate, issueDateError, "Passport's issue date")
+  if (!validate(issueDate, issueDateError, "Passport's issue date"))
+    isValid = false
 
   //validates that the phone number is entered
-  validate(phoneNumber, phoneNumberError, 'Phone Number')
+  if (!validate(phoneNumber, phoneNumberError, 'Phone Number')) isValid = false
 
   //validates that the email is entered
-  validate(email, emailError, 'Email')
+  if (!validate(email, emailError, 'Email')) isValid = false
 
   //validates that the confirm email is entered
-  validate(confirmEmail, confirmEmailError, 'Confirm email')
+  if (!validate(confirmEmail, confirmEmailError, 'Confirm email'))
+    isValid = false
 
   //validates that the confirm is entered
-  validate(confirmEmail, confirmEmailError, 'Confirm email')
+  if (!validate(confirmEmail, confirmEmailError, 'Confirm email'))
+    isValid = false
 
   //validates that the street address is entered
-  validate(streetAddress, streetAddressError, 'Street address')
+  if (!validate(streetAddress, streetAddressError, 'Street address'))
+    isValid = false
 
   //validates that the city is entered
-  validate(city, cityError, 'City')
+  if (!validate(city, cityError, 'City')) isValid = false
 
   //validates that the province is entered
-  validate(province, provinceError, 'Province')
+  if (!validate(province, provinceError, 'Province')) isValid = false
 
   //validates that the postal code is entered
-  validate(postalCode, postalCodeError, 'Postal code')
+  if (!validate(postalCode, postalCodeError, 'Postal code')) isValid = false
 
   //validates that the country is entered
-  validate(country, countryError, 'Country')
+  if (!validate(country, countryError, 'Country')) isValid = false
+
+  if(isValid) document.getElementById('bookingForm').submit()
 })

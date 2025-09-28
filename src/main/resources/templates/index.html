@@ -15,7 +15,7 @@
       <section
         class="w-full sm:w-[70%] bg-[#A3BCF9] rounded-lg p-10 h-[95vh] overflow-y-auto"
       >
-        <form class="" action="">
+        <form id="bookingForm" th:action="@{book}" th:object="${bookingForm}" action="post">
           <!-- Fight Details Section -->
 
           <div class="mb-5">
@@ -57,7 +57,7 @@
               <label class="mb-2 text-lg font-medium traking-wide" for="origin"
                 >From</label
               >
-              <select id="departureCity" class="p-2 w-full">
+              <select id="departureCity" name ="departureCity" class="p-2 w-full">
                 <option value="" selected disabled hidden>Please Select</option>
                 <option value="Toronto">Toronto</option>
                 <option value="Paris">Paris</option>
@@ -77,7 +77,7 @@
               <label class="mb-2 text-lg font-medium traking-wide" for=""
                 >To</label
               >
-              <select id="arrivalCity" class="p-2 w-full">
+              <select id="arrivalCity" name="arrivalCity" class="p-2 w-full">
                 <option value="" selected hidden>Please Select</option>
                 <option value="Toronto">Toronto</option>
                 <option value="Paris">Paris</option>
@@ -102,7 +102,7 @@
               <label class="mb-2 text-lg font-medium traking-wide" for=""
                 >Airline</label
               >
-              <select id="airline" class="p-2 w-full">
+              <select id="airline" name="airline" class="p-2 w-full">
                 <option value="" selected hidden>Please Select</option>
                 <option value="Centrip Airlines">Centrip Airlines</option>
                 <option value="Air Canada">Air Canada</option>
@@ -121,6 +121,7 @@
               >
               <input
                 id="departureDate"
+                name="departureDate"
                 class="p-2 h-[41px] w-full"
                 type="date"
               />
@@ -139,7 +140,7 @@
               <label class="mb-2 text-lg font-medium traking-wide" for=""
                 >Return</label
               >
-              <input id="returnDate" class="p-2 h-[41px] w-full" type="date" />
+              <input id="returnDate" name="returnDate" class="p-2 h-[41px] w-full" type="date" />
               <span class="text-xs mt-2">Date</span>
               <span
                 id="returnDateError"
@@ -152,6 +153,7 @@
               >
               <input
                 id="adultsCount"
+                name="adultsCount"
                 class="p-2 h-[41px] w-full"
                 type="number"
                 placeholder="ex: 2"
@@ -180,7 +182,7 @@
             >
             <div class="flex flex-col lg:flex-row gap-5 lg:gap-2">
               <span class="flex flex-col w-full">
-                <select class="p-2 w-full" name="">
+                <select class="p-2 w-full" name="prefix">
                   <option value="" selected hidden>Please Select</option>
                   <option value="Mr.">Mr.</option>
                   <option value="Mrs.">Mrs.</option>
@@ -189,7 +191,7 @@
                 <span class="text-xs mt-2">Prefix</span>
               </span>
               <span class="flex flex-col w-full">
-                <input id="firstName" class="p-2 h-[41px] w-full" type="text" />
+                <input id="firstName" name="firstName" class="p-2 h-[41px] w-full" type="text" />
                 <span class="text-xs mt-2">First Name</span>
                 <span
                   id="firstNameError"
@@ -197,11 +199,11 @@
                 ></span>
               </span>
               <span class="flex flex-col w-full">
-                <input class="p-2 h-[41px] w-full" type="text" />
+                <input class="p-2 h-[41px] w-full" name="middleName" type="text" />
                 <span class="text-xs mt-2">Middle Name</span>
               </span>
               <span class="flex flex-col w-full">
-                <input id="lastName" class="p-2 h-[41px] w-full" type="text" />
+                <input id="lastName" name="lastName" class="p-2 h-[41px] w-full" type="text" />
                 <span class="text-xs mt-2">Last Name</span>
                 <span
                   id="lastNameError"
@@ -220,6 +222,7 @@
               >
               <input
                 id="passportNumber"
+                name="passportNumber"
                 class="p-2 h-[41px] w-full"
                 type="text"
               />
@@ -232,7 +235,7 @@
               <label class="mb-2 text-lg font-medium traking-wide" for=""
                 >Nationality</label
               >
-              <select id="nationality" class="p-2 w-full" name="">
+              <select id="nationality" name="nationality" class="p-2 w-full">
                 <option value="" selected hidden>Please Select</option>
                 <option value="Canada">Canada</option>
                 <option value="France">France</option>
@@ -254,7 +257,7 @@
               <label class="mb-2 text-lg font-medium traking-wide" for=""
                 >Expiry</label
               >
-              <input id="expiryDate" class="p-2 h-[41px] w-full" type="date" />
+              <input id="expiryDate" name="expiryDate" class="p-2 h-[41px] w-full" type="date" />
               <span class="text-xs mt-2">Date</span>
               <span
                 id="expiryDateError"
@@ -265,7 +268,7 @@
               <label class="mb-2 text-lg font-medium traking-wide" for=""
                 >Issue</label
               >
-              <input id="issueDate" class="p-2 h-[41px] w-full" type="date" />
+              <input id="issueDate" name="issueDate" class="p-2 h-[41px] w-full" type="date" />
               <span class="text-xs mt-2">Date</span>
               <span
                 id="issueDateError"
@@ -283,6 +286,7 @@
               >
               <input
                 id="phoneNumber"
+                name="phoneNumber"
                 class="p-2 h-[41px] w-full"
                 type="text"
                 placeholder="(000) 000-0000"
@@ -297,7 +301,7 @@
                 >Email</label
               >
               <span class="flex flex-col gap-2">
-                <input id="email" class="p-2 h-[41px] w-full" type="email" />
+                <input id="email" name="email" class="p-2 h-[41px] w-full" type="email" />
                 <span
                   id="emailError"
                   class="text-sm text-red-500 mb-2 hidden"
@@ -327,6 +331,7 @@
               <span class="flex flex-col w-full">
                 <input
                   id="streetAddress"
+                  name="streetAddress"
                   class="p-2 h-[41px] w-full"
                   type="text"
                 />
@@ -337,12 +342,12 @@
                 ></span>
               </span>
               <span class="flex flex-col w-full">
-                <input class="p-2 h-[41px] w-full" type="text" />
+                <input name="streetAddressLine2" class="p-2 h-[41px] w-full" type="text" />
                 <span class="text-xs mt-2">Street Address Line 2</span>
               </span>
               <div class="flex flex-col sm:flex-row sm:gap-2 gap-5">
                 <span class="flex flex-col w-full">
-                  <input id="city" class="p-2 h-[41px] w-full" type="text" />
+                  <input id="city" name="city" class="p-2 h-[41px] w-full" type="text" />
                   <span class="text-xs mt-2">City</span>
                   <span
                     id="cityError"
@@ -364,7 +369,7 @@
               </div>
               <div class="flex flex-col sm:flex-row sm:gap-2 gap-5">
                 <span class="flex flex-col w-full">
-                  <input id="postalCode" class="p-2 h-[41px]" type="text" />
+                  <input id="postalCode" name="postalCode" class="p-2 h-[41px]" type="text" />
                   <span class="text-xs mt-2">Postal Code</span>
                   <span
                     id="postalCodeError"
@@ -372,7 +377,7 @@
                   ></span>
                 </span>
                 <span class="flex flex-col w-full">
-                  <select id="country" class="p-2 w-full" name="">
+                  <select id="country" name="country" class="p-2 w-full">
                     <option value="" selected hidden>Please Select</option>
                     <option value="Canada">Canada</option>
                     <option value="France">France</option>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Successful</title>
+  </head>
+  <style>
+  
+  .imgSection {
+  background-image: url('../images/showBooking.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+  
+  </style>
+  <body class="bg-[#88b7bd] p-5 overflow-hidden">
+    <div
+      class="flex gap-2 p-2 bg-white rounded-2xl min-h-[95vh] max-w-[1100px] m-auto"
+    >
+      <section class="imgSection w-[30%] rounded-lg hidden sm:block"></section>
+      <section class="w-full sm:w-[70%] rounded-lg p-10 h-[95vh]">
+        <div class="flex gap-2 items-center justify-center">
+          <img width="50" src="images/confirm.png" alt="" />
+          <h1 class="text-xl lg:text-2xl font-semibold">Booking Successful</h1>
+        </div>
+
+        <h1 class="mt-5 text-lg lg:text-xl font-semibold text-center">
+          Trip details
+        </h1>
+
+        <!-- Name -->
+
+        <div class="mt-2 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Full Name:</h1>
+          <h1 th:text="${fullName}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Nationality -->
+
+        <div class="mt-2 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Nationality:</h1>
+          <h1 th:text="${booking.nationality}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Passport number -->
+
+        <div class="mt-2 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Passport Number:</h1>
+          <h1 th:text="${booking.passportNumber}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Issue date -->
+
+        <div class="mt-2 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Issue Date:</h1>
+          <h1 th:text="${booking.issueDate}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Expiry date -->
+
+        <div class="mt-2 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Expiry Date:</h1>
+          <h1 th:text="${booking.expiryDate}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Email -->
+
+        <div class="mt-2 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Email:</h1>
+          <h1 th:text="${booking.email}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Phone number -->
+
+        <div class="mt-2 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Phone Number:</h1>
+          <h1 th:text="${booking.phoneNumber}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Address -->
+
+        <div class="mt-2 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Address:</h1>
+          <h1 th:text="${booking.fullAddress}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <h1 class="mt-5 text-lg lg:text-xl font-semibold text-center">
+          Traveler details
+        </h1>
+
+        <!-- Trip type -->
+
+        <div class="mt-1 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Trip Type:</h1>
+          <h1 th:text="${booking.tripType}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- From -->
+
+        <div class="mt-1 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">From:</h1>
+          <h1 th:text="${booking.departureCity}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- To -->
+
+        <div class="mt-1 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">To:</h1>
+          <h1 th:text="${booking.arrivalCity}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Airline -->
+
+        <div class="mt-1 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Airline:</h1>
+          <h1 th:text="${booking.airline}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Departure -->
+
+        <div class="mt-1 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Departure:</h1>
+          <h1 th:text="${booking.departureDate}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Return -->
+
+        <div class="mt-1 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Return:</h1>
+          <h1 th:text="${booking.returnDate}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Adults -->
+
+        <div class="mt-1 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Adults:</h1>
+          <h1 th:text="${booking.adultsCount}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <!-- Price -->
+
+        <div class="mt-1 flex gap-2 justify-left">
+          <h1 class="text-md lg:text-lg font-semibold">Price</h1>
+          <h1 th:text="${price}" class="text-md lg:text-lg font-semibold text-[#052163]"></h1>
+        </div>
+
+        <h1 class="mt-10 text-md lg:text-lg font-semibold text-center">
+          “Wishing you clear skies and a smooth flight!”
+        </h1>
+      </section>
+    </div>
+  </body>
+</html>

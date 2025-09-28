@@ -9,8 +9,8 @@ public class Booking {
 	
 	//Travel Details
 	private String tripType; 
-	private String origin;
-	private String destination;
+	private String departureCity;
+	private String arrivalCity;
 	private String airline;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -19,7 +19,7 @@ public class Booking {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate returnDate;
 	
-	private int numberOfAdults;	
+	private int adultsCount;	
 	
 
 	//Traveler Details
@@ -37,7 +37,7 @@ public class Booking {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate issueDate;
 	
-	private int phoneNumber;
+	private String phoneNumber;
 	private String email;
 	
 	private String streetAddress;
@@ -55,17 +55,18 @@ public class Booking {
 	public void setTripType(String tripType) {
 		this.tripType = tripType;
 	}
-	public String getOrigin() {
-		return origin;
+	
+	public String getDepartureCity() {
+		return departureCity;
 	}
-	public void setOrigin(String origin) {
-		this.origin = origin;
+	public void setDepartureCity(String departureCity) {
+		this.departureCity = departureCity;
 	}
-	public String getDestination() {
-		return destination;
+	public String getArrivalCity() {
+		return arrivalCity;
 	}
-	public void setDestination(String destination) {
-		this.destination = destination;
+	public void setArrivalCity(String arrivalCity) {
+		this.arrivalCity = arrivalCity;
 	}
 	public String getAirline() {
 		return airline;
@@ -85,11 +86,12 @@ public class Booking {
 	public void setReturnDate(LocalDate returnDate) {
 		this.returnDate = returnDate;
 	}
-	public int getNumberOfAdults() {
-		return numberOfAdults;
+	
+	public int getAdultsCount() {
+		return adultsCount;
 	}
-	public void setNumberOfAdults(int numberOfAdults) {
-		this.numberOfAdults = numberOfAdults;
+	public void setAdultsCount(int adultsCount) {
+		this.adultsCount = adultsCount;
 	}
 	public String getPrefix() {
 		return prefix;
@@ -139,10 +141,10 @@ public class Booking {
 	public void setIssueDate(LocalDate issueDate) {
 		this.issueDate = issueDate;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public String getEmail() {
@@ -188,8 +190,24 @@ public class Booking {
 		this.country = country;
 	}
 	
+	//join name to create single string
+	public String getFullName() {
+		String prefixStr = getPrefix() == "" ? getPrefix() : getPrefix() + " ";
+		String middleNameStr = getMiddleName() == "" ? getMiddleName() : getMiddleName() + " ";
+		return prefixStr + getFirstName() + " " + middleNameStr + getLastName();
+	}
 	
+	//join address to create single string
+	public String getFullAddress() {
+		String streetAddressLine2Str = getStreetAddressLine2() == "" ? getStreetAddressLine2() : getStreetAddressLine2() + " ";
+		return getStreetAddress() + " " + streetAddressLine2Str + " " + getCity() + " " + getProvince() + " " + getPostalCode() + " " + getCountry();
+	}
 	
+	public int calculatePrice() {
+		boolean isRoundTrip = getTripType().equals("Round Trip") ? true : false;
+		int price = isRoundTrip ? 2000 : 1000;
+		return price;
+	}
 	
 
 
